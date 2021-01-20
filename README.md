@@ -3,15 +3,23 @@ a) eBWT --> FASTA, text
 
 b) eBWT, QS --> FASTQ, text
 
-### Compile
-One can compile choosing between options (a) and (b). 
+### Install
 
-Decoding option (a) (FASTQ=0) is set by default:
+```sh
+git clone https://github.com/giovannarosone/BCR_QS_decode
+cd BCR_QS_decode
+```
+
+### Compile
+One can compile choosing between options (a) and (b) above. 
+
+Decoding option (a) is set by default (FASTQ=0):
 
 ```sh
 make
 ```
-While for decoding option (b) set FASTQ=1:
+
+While for decoding option (b), compile with FASTQ=1:
 
 ```sh
 make FASTQ=1
@@ -24,8 +32,8 @@ make FASTQ=1
 where:
 - input is the filename without extension
 - output is the output filename
-- mode = 1 --> decode .ebwt just using the maximum read length (maxLengthRead)
-- mode = 2 --> decode .ebwt by using existing partial ebwt files, in addition to .info and .table files
-- mode = 3 --> decode .ebwt by using .info and .table files
+- mode = 1 --> decode eBWT by using the maximum read length only (maxLengthRead)
+- mode = 2 --> decode eBWT by using existing partial ebwt files, in addition to .info and .table files
+- mode = 3 --> decode eBWT by using .info and .table files
 - maxLengthRead is the maximum read length (mandatory for running mode=1)
 - numthreads is the maximum number of threads possibly used in parallel regions
