@@ -32,8 +32,9 @@ make FASTQ=1
 where:
 - input is the filename without extension
 - output is the output filename
-- mode = 1 --> decode eBWT by using the maximum read length only (maxLengthRead)
-- mode = 2 --> decode eBWT by using existing partial ebwt files, in addition to .info and .table files
-- mode = 3 --> decode eBWT by using .info and .table files
+- mode can be set equal to
+* 1 --> for decoding eBWT by using the maximum read length only (maxLengthRead)
+* 2 --> for decoding eBWT by using existing partial ebwt files, in addition to .info and .table files
+* 3 --> for decoding eBWT by using .info and .table files
 - maxLengthRead is the maximum read length (mandatory for running mode=1)
 - numthreads is the maximum number of threads possibly used in parallel regions
