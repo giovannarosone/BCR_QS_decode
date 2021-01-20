@@ -1,7 +1,10 @@
 # BCR_QS_decode
 eBWT --> FastQ, FASTA, text
 
-usage: ./unBCR_QS input output mode maxLengthRead numthreads
+usage: 
+
+./unBCR_QS input output mode maxLengthRead numthreads
+
 where:
   input is the filename without extension
   output is the output filename
