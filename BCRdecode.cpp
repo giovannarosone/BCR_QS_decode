@@ -820,17 +820,16 @@ int BCRdecode::splitIntoPartial(string fileWithExt, int mode) {
         }
     #endif
     
-    
-    //allocate tableOcc
-    tableOcc = new dataTypeNChar*[sizeAlpha];
-    //Counting for each pile, es. $-pile, A-pile, C-pile, G-pile, N-pile, T-pile
-    for (dataTypedimAlpha j = 0 ; j < sizeAlpha; j++) {
-        tableOcc[j] = new dataTypeNChar[sizeAlpha];
+    if (mode == 1) {    //allocate tableOcc
+        tableOcc = new dataTypeNChar*[sizeAlpha];
+        //Counting for each pile, es. $-pile, A-pile, C-pile, G-pile, N-pile, T-pile
+        for (dataTypedimAlpha j = 0 ; j < sizeAlpha; j++) {
+            tableOcc[j] = new dataTypeNChar[sizeAlpha];
+        }
+        for (dataTypedimAlpha j = 0 ; j < sizeAlpha; j++)
+            for (dataTypedimAlpha h = 0 ; h < sizeAlpha; h++)
+                tableOcc[j][h]=0;
     }
-    for (dataTypedimAlpha j = 0 ; j < sizeAlpha; j++)
-        for (dataTypedimAlpha h = 0 ; h < sizeAlpha; h++)
-            tableOcc[j][h]=0;
-    
     
     //BCR partial files
     std::cerr << "Build the partial BCR files for eBWT/LCP/DA/QS." << std::endl;
