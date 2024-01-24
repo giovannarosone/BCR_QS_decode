@@ -1607,9 +1607,9 @@ int BCRdecode::convertFromCycFileToFastaOrFastq( string fileOutDecode)
         {
 
             #if USE_QS
-                outFile << "@Read"  << j << std::endl;
+                outFile << "@Seq."  << j << std::endl;
             #else
-                outFile << "> Read "  << j << std::endl;
+                outFile << "> Seq. "  << j << std::endl;
             #endif
             
             for ( dataTypelenSeq i = 0; i < lengthRead; i++ )
