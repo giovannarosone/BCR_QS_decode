@@ -1,7 +1,14 @@
 # BCR_QS_decode
-a) eBWT --> FASTA, text
+This library decodes a collection of sequences from its eBWT computed by BCR. 
 
-b) eBWT, QS --> FASTQ, text
+Nucleotide sequences datasets often come with per-base quality scores that encode sequencing probability error.
+
+Then, BCR_QS_decode offers two decoding options:
+
+a) eBWT --> fasta
+
+b) eBWT, QS --> fastq
+where QS is the string of quality scores permuted according to the eBWT symbols.
 
 ### Install
 
@@ -30,11 +37,7 @@ make FASTQ=1
 ./unBCR_QS input output mode maxLengthRead numthreads
 ```
 where:
-- input is the filename without extension
+- input is  input is the BWT filename with no extension .ebwt (and .ebwt.qs for the QS string)
 - output is the output filename
-- mode can be set equal to
-  * 1 --> for decoding eBWT by using the maximum read length only (maxLengthRead)
-  * 2 --> for decoding eBWT by using existing partial ebwt files, in addition to .info and .table files
-  * 3 --> for decoding eBWT by using only .info and .table files
-- maxLengthRead is the maximum read length (mandatory for running mode=1)
+- maxLengthRead is the maximum read length
 - numthreads is the maximum number of threads possibly used in parallel regions
