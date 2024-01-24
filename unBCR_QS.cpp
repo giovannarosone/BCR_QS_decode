@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
     std::cout << "unBCR_QS: " << argv[0] << std::endl;
     std::cout << "unBCR_QS: The input is " << argv[1] << std::endl;
     std::cout << "unBCR_QS: The output is " << argv[2] << std::endl;
-	std::cout << "unBCR_QS: maxLengthRead is " << argv[4] << std::endl;
+	std::cout << "unBCR_QS: maxLengthRead is " << argv[3] << std::endl;
     if (MODE == 1)
 		std::cout << "unBCR_QS: MODE is 1 --> unBCR " << std::endl;
 	else if (MODE == 2)
@@ -85,10 +85,10 @@ int main(int argc, char *argv[])
     string fileOutDecode=argv[2];
      
     int num_threads = 1;
-    int maxLengthRead = atoi(argv[4]);
+    int maxLengthRead = atoi(argv[3]);
     #if OMP
-            std::cout << "unBCR_QS: numthreads is " << argv[5] << std::endl;
-            num_threads = atoi(argv[5]);
+            std::cout << "unBCR_QS: numthreads is " << argv[4] << std::endl;
+            num_threads = atoi(argv[4]);
     #endif
     
     //dataTypelenSeq lengthRead=0;    //Length of each text
