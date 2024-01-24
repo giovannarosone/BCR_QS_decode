@@ -34,7 +34,7 @@ make FASTQ=1
 ### Usage
 
 ```sh
-./unBCR_QS input output mode maxLengthRead numthreads
+./unBCR_QS input output maxLengthRead numthreads
 ```
 where:
 - input is  input is the BWT filename with no extension .ebwt (and .ebwt.qs for the QS string)
