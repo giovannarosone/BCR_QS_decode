@@ -5,9 +5,9 @@ Nucleotide sequences datasets often come with per-base quality scores that encod
 
 BCR_QS_decode offers two decoding options:
 
-a) eBWT --> fasta
+a) **eBWT --> FASTA**
 
-b) eBWT, QS --> fastq
+b) **eBWT, QS --> FASTQ**,  
 where QS is the string of quality scores permuted according to the eBWT symbols.
 
 ### Install
