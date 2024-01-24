@@ -3,7 +3,7 @@ This library decodes a collection of sequences from its eBWT computed by BCR.
 
 Nucleotide sequences datasets often come with per-base quality scores that encode sequencing probability error.
 
-Then, BCR_QS_decode offers two decoding options:
+BCR_QS_decode offers two decoding options:
 
 a) eBWT --> fasta
 
