@@ -48,6 +48,11 @@
 
 #define SIZE_ALPHA 256  
 
+#define MODE 1
+//MODE can be set equal to
+// 1 --> for decoding eBWT by using the maximum read length only (maxLengthRead)
+// 2 --> for decoding eBWT by using existing partial ebwt files, in addition to .info and .table files
+// 3 --> for decoding eBWT by using only .info and .table files
 
 
 typedef unsigned char uchar;

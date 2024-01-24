@@ -57,33 +57,33 @@ int main(int argc, char *argv[])
 {
 
     #if OMP
-        if( argc != 6 ) {
-            std::cerr << "usage: " << argv[0] << " input output mode maxLengthRead numthreads" << std::endl;
-    #else
         if( argc != 5 ) {
-            std::cerr << "usage: " << argv[0] << " input output mode maxLengthRead" << std::endl;
+            std::cerr << "usage: " << argv[0] << " input output maxLengthRead numthreads" << std::endl;
+    #else
+        if( argc != 4 ) {
+            std::cerr << "usage: " << argv[0] << " input output maxLengthRead" << std::endl;
     #endif
             std::cerr << "where:" << std::endl;
-            std::cerr << "  input is the filename without extension " << std::endl;
-            std::cerr << "  output file " << std::endl;
-            std::cerr << "\tmode = 1 --> unBCR " << std::endl;
-            std::cerr << "\tmode = 2 --> unBCR by using existing partial files" << std::endl;
-            std::cerr << "\tmode = 3 --> unBCR by using .table file" << std::endl;
-            std::cerr << "  maxLengthRead is the maximum read length (required for running smode=1)" << std::endl;
+            std::cerr << "  input is the BWT filename without the extension .ebwt (and .ebwt.qs for the QS string)" << std::endl;
+            std::cerr << "  output is the output file " << std::endl;
+            std::cerr << "  maxLengthRead is the maximum read length (required)" << std::endl;
             exit(1);
     }
 
     std::cout << "unBCR_QS: " << argv[0] << std::endl;
     std::cout << "unBCR_QS: The input is " << argv[1] << std::endl;
     std::cout << "unBCR_QS: The output is " << argv[2] << std::endl;
-    std::cout << "unBCR_QS: mode is " << argv[3] << std::endl;
-            
+	std::cout << "unBCR_QS: maxLengthRead is " << argv[4] << std::endl;
+    if (MODE == 1)
+		std::cout << "unBCR_QS: MODE is 1 --> unBCR " << std::endl;
+	else if (MODE == 2)
+        std::cout << "unBCR_QS: MODE is 2 --> unBCR by using existing partial files" << std::endl;
+	else
+		std::cout << "unBCR_QS: MODE is 3 --> unBCR by using .table file" << std::endl;
+	
     string fileInput=argv[1];
     string fileOutDecode=argv[2];
-    int mode = atoi(argv[3]);
-    if(mode==1)
-        std::cout << "unBCR_QS mode = 1: maxLengthRead is " << argv[4] << std::endl;
-            
+     
     int num_threads = 1;
     int maxLengthRead = atoi(argv[4]);
     #if OMP
@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
     
     BCRdecode *BCRdec;
     
-    BCRdec = new BCRdecode(fileInput, fileOutDecode, mode, maxLengthRead, num_threads);
+    BCRdec = new BCRdecode(fileInput, fileOutDecode, MODE, maxLengthRead, num_threads);
     
     std::cerr << "\nThe rebuilt file is ready! \n";
      
