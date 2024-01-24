@@ -41,3 +41,16 @@ where:
 - output is the output filename
 - maxLengthRead is the maximum read length
 - numthreads is the maximum number of threads possibly used in parallel regions
+
+### Examples
+Decoding with option (a)
+```sh
+./unBCR_QS test/7seqsVar output_7seqs 13 1
+```
+we get the file output_7seqs.fasta, which is the string collection in test/7seqsVar.fa.
+
+Decoding with option (b)
+```sh
+./unBCR_QS test/3seqs output_3seqs 14 1
+```
+we get the file output_3seqs.fastq, which is the string collection with their quality scores in test/3seqs.fq.
