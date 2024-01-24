@@ -601,7 +601,7 @@ int BCRdecode::buildFreq(string fileWithExt) {
    
     //Open LCP and DA and BWT files
     string fnBWT = string(fileWithExt) + ".ebwt";
-    std::cerr << "Split " << fnBWT << " file in BWT/LCP/DA/QS partial file." << std::endl;
+   
     FILE *InBWT = fopen(fnBWT.c_str(), "rb");
     if (InBWT==NULL) {
         std::cerr << "Error opening " << fnBWT << "!" << std::endl;
@@ -704,6 +704,11 @@ int BCRdecode::buildFreq(string fileWithExt) {
         //cerr << numEle << " " << bwt << " " << (int)qs << "\n";
     }//end-while
     
+	if(freq[TERMINATE_CHAR]==0){
+		std::cerr << "ERROR: The end-marker must be " << TERMINATE_CHAR << endl;
+		std::cerr << "If you want to use a different end-marker, set the parameter TERMINATE_CHAR in Parameters.h" << endl;
+		exit(1);
+	}
     //set nText
     nText = numSeq;
     
